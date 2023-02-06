@@ -1,8 +1,9 @@
 import java.util.Arrays;
 
-public class CarArrayList implements CarList{
+public class CarArrayList implements CarList {
     private Car[] array = new Car[10];
     int size = 0;
+
     @Override
     public Car get(int index) {
         checkIndex(index);

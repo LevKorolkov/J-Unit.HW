@@ -19,58 +19,84 @@ class CarListTest {
 
     @Test
     public void whenAdded100ElementsWhenSizeMustBe100() {
+        //given
         int expected = 100;
+
+        //when
         int result = carList.size();
+
+        //then
         assertEquals(expected, result);
     }
 
     @Test
     public void whenElementRemovedByIndexThenSizeMustBeDecreased() {
+        //given
         int expected = 99;
 
+        //when
         assertTrue(carList.removeAt(5));
         int result = carList.size();
+
+        //then
         assertEquals(expected, result);
     }
 
     @Test
     public void whenElementRemovedThenSizeMustBeDecreased() {
+        //given
         int expectedBeforeDelete = 101;
         int expectedAfterDelete = 100;
 
+        //when
         Car car = new Car("Volvo", 15);
         carList.add(car);
-
         assertEquals(expectedBeforeDelete, carList.size());
         assertTrue(carList.remove(car));
-        assertEquals(expectedAfterDelete, carList.size());
+        int result = carList.size();
+
+        //then
+        assertEquals(expectedAfterDelete, result);
     }
 
     @Test
     public void whenNonExistentElementRemovedThenReturnFalse() {
+        //given
         int expected = 100;
 
+        //when
         Car car = new Car("Volvo", 15);
         assertFalse(carList.remove(car));
         int result = carList.size();
 
+        //then
         assertEquals(expected, result);
     }
 
     @Test
     public void whenListClearedThenSizeMustBeZero() {
+        //given
         int expected = 0;
+
+        //when
         carList.clear();
         int result = carList.size();
 
-        assertEquals(expected, carList.size());
+        //then
+        assertEquals(expected, result);
     }
 
 
     @Test
     public void methodGetReturnedRightValue(){
+        //given
         String expected = "Brand0";
+
+        //when
         Car car = carList.get(0);
-        assertEquals(expected, car.getBrand());
+        String result = car.getBrand();
+
+        //then
+        assertEquals(expected, result);
     }
 }
